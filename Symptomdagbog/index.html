@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Symptomdagbog</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- LOGIN -->
+        <section id="login-side" class="side">
+
+            <h1>Symptomdagbog</h1>
+
+            <p>Log ind for at registrere dine symptomer.</p>
+
+            <form id="login-form">
+
+                <label for="brugernavn">Brugernavn</label>
+
+                <input
+                    type="text"
+                    id="brugernavn"
+                    placeholder="Indtast brugernavn"
+                    required
+                >
+
+                <label for="kodeord">Kodeord</label>
+
+                <input
+                    type="password"
+                    id="kodeord"
+                    placeholder="Indtast kodeord"
+                    required
+                >
+
+                <button type="submit">
+                    Log ind
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- FORSIDE -->
+        <section id="forside" class="side skjult">
+
+            <h1>Velkommen</h1>
+
+            <p>
+                Her kan du registrere og følge dine symptomer.
+            </p>
+
+            <div class="forside-knapper">
+
+                <button onclick="visRegistrering()">
+                    Registrer symptom
+                </button>
+
+                <button onclick="visHistorik()">
+                    Se historik
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- REGISTRERING + HISTORIK SIDE OM SIDE -->
+        <section id="registrering-side" class="side skjult">
+
+            <div class="to-kolonner">
+
+                <!-- VENSTRE SIDE -->
+                <div class="registreringspanel">
+
+                    <h1>Registrer symptom</h1>
+
+                    <h2>Hvilket symptom oplever du?</h2>
+
+                    <div class="symptom-grid">
+
+                        <button
+                            class="symptom-knap"
+                            onclick="vaelgSymptom('Migræne', this)"
+                        >
+                            Migræne
+                        </button>
+
+                        <button
+                            class="symptom-knap"
+                            onclick="vaelgSymptom('Svimmelhed', this)"
+                        >
+                            Svimmelhed
+                        </button>
+
+                        <button
+                            class="symptom-knap"
+                            onclick="vaelgSymptom('Smerter', this)"
+                        >
+                            Smerter
+                        </button>
+
+                        <button
+                            class="symptom-knap"
+                            onclick="vaelgSymptom('Kvalme', this)"
+                        >
+                            Kvalme
+                        </button>
+
+                    </div>
+
+
+                    <h2>Hvor slemt er symptomet?</h2>
+
+                    <p>1 = mildt &nbsp;&nbsp; 5 = meget slemt</p>
+
+                    <div class="rating">
+
+                        <button onclick="vaelgRating(1, this)">1</button>
+                        <button onclick="vaelgRating(2, this)">2</button>
+                        <button onclick="vaelgRating(3, this)">3</button>
+                        <button onclick="vaelgRating(4, this)">4</button>
+                        <button onclick="vaelgRating(5, this)">5</button>
+
+                    </div>
+
+                    <p id="valg-tekst">
+                        Vælg et symptom og en sværhedsgrad.
+                    </p>
+
+                    <button
+                        class="gem-knap"
+                        onclick="gemRegistrering()"
+                    >
+                        Gem
+                    </button>
+
+                    <button onclick="visForside()">
+                        Tilbage
+                    </button>
+
+                </div>
+
+
+                <!-- HØJRE SIDE -->
+                <div class="historikpanel">
+
+                    <h2>Seneste registreringer</h2>
+
+                    <div id="kort-historik"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FULD HISTORIK -->
+        <section id="historik-side" class="side skjult">
+
+            <h1>Historik</h1>
+
+            <p>
+                Her kan du se dine tidligere symptomregistreringer.
+            </p>
+
+            <div id="historik-liste"></div>
+
+            <button onclick="visRegistrering()">
+                Ny registrering
+            </button>
+
+            <button onclick="visForside()">
+                Tilbage til forsiden
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
