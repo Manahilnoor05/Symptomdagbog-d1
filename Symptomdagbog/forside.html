@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Symptomdagbog</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- LOGIN -->
+        <section id="login-side" class="side">
+
+            <h1>Symptomdagbog</h1>
+
+            <p>Log ind for at registrere dine symptomer.</p>
+
+            <form id="login-form">
+
+                <label for="brugernavn">Brugernavn</label>
+
+                <input
+                    type="text"
+                    id="brugernavn"
+                    placeholder="Indtast brugernavn"
+                    required
+                >
+
+                <label for="kodeord">Kodeord</label>
+
+                <input
+                    type="password"
+                    id="kodeord"
+                    placeholder="Indtast kodeord"
+                    required
+                >
+
+                <button type="submit">
+                    Log ind
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- FORSIDE -->
+        <section id="forside" class="side skjult">
+
+            <h1>Velkommen</h1>
+
+            <p>
+                Her kan du registrere og følge dine symptomer.
+            </p>
+
+            <div class="forside-knapper">
+
+                <button onclick="visRegistrering()">
+                    Registrer symptom
+                </button>
+
+                <button onclick="visHistorik()">
+                    Se historik
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="forside.js"></script>
+
+</body>
+</html>
