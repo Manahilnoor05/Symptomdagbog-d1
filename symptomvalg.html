@@ -1,0 +1,87 @@
+<!-- REGISTRERING + HISTORIK SIDE OM SIDE -->
+        <section id="registrering-side" class="side skjult">
+
+            <div class="to-kolonner">
+
+                <!-- VENSTRE SIDE -->
+                <div class="registreringspanel">
+
+                    <h1>Registrer symptom</h1>
+
+                    <h2>Hvilket symptom oplever du?</h2>
+
+                    <div class="symptom-grid">
+
+                        <button
+                            class="symptom-knap"
+                            onclick="vaelgSymptom('Migræne', this)"
+                        >
+                            Migræne
+                        </button>
+
+                        <button
+                            class="symptom-knap"
+                            onclick="vaelgSymptom('Svimmelhed', this)"
+                        >
+                            Svimmelhed
+                        </button>
+                        <button
+                            class="symptom-knap"
+                            onclick="vaelgSymptom('Smerter', this)"
+                        >
+                            Smerter
+                        </button>
+
+                        <button
+                            class="symptom-knap"
+                            onclick="vaelgSymptom('Kvalme', this)"
+                        >
+                            Kvalme
+                        </button>
+
+                    </div>
+
+
+                    <h2>Hvor slemt er symptomet?</h2>
+
+                    <p>1 = mildt &nbsp;&nbsp; 5 = meget slemt</p>
+
+                    <div class="rating">
+
+                        <button onclick="vaelgRating(1, this)">1</button>
+                        <button onclick="vaelgRating(2, this)">2</button>
+                        <button onclick="vaelgRating(3, this)">3</button>
+                        <button onclick="vaelgRating(4, this)">4</button>
+                        <button onclick="vaelgRating(5, this)">5</button>
+
+                    </div>
+
+                    <p id="valg-tekst">
+                        Vælg et symptom og en sværhedsgrad.
+                    </p>
+
+                    <button
+                        class="gem-knap"
+                        onclick="gemRegistrering()"
+                    >
+                        Gem
+                    </button>
+
+                    <button onclick="visForside()">
+                        Tilbage
+                    </button>
+                     </div>
+
+
+                <!-- HØJRE SIDE -->
+                <div class="historikpanel">
+
+                    <h2>Seneste registreringer</h2>
+
+                    <div id="kort-historik"></div>
+
+                </div>
+
+            </div>
+
+        </section>
