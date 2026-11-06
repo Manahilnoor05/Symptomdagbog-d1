@@ -1,5 +1,21 @@
-<!-- REGISTRERING + HISTORIK SIDE OM SIDE -->
-        <section id="registrering-side" class="side skjult">
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registrer symptom</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- REGISTRERING + HISTORIK SIDE OM SIDE -->
+        <section id="registrering-side" class="side">
 
             <div class="to-kolonner">
 
@@ -25,6 +41,7 @@
                         >
                             Svimmelhed
                         </button>
+
                         <button
                             class="symptom-knap"
                             onclick="vaelgSymptom('Smerter', this)"
@@ -67,10 +84,11 @@
                         Gem
                     </button>
 
-                    <button onclick="visForside()">
+                    <button onclick="window.location.href='index.html'">
                         Tilbage
                     </button>
-                     </div>
+
+                </div>
 
 
                 <!-- HØJRE SIDE -->
@@ -85,3 +103,11 @@
             </div>
 
         </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
