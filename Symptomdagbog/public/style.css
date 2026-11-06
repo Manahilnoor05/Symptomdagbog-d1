@@ -1,383 +1,765 @@
-/* =========================
-   GRUNDSTIL
-========================= */
+/* ==================================================
+   DIGITAL SYMPTOMDAGBOG
+   Fælles design til alle sider
+================================================== */
+
+:root {
+    --primary: #4f5df5;
+    --primary-dark: #3d49d8;
+    --primary-light: #eef0ff;
+
+    --secondary: #ffffff;
+    --secondary-border: #cfd7ea;
+
+    --success: #1f9d76;
+    --success-light: #eaf8f3;
+
+    --text: #1f2a44;
+    --text-soft: #64748b;
+
+    --background: #f3f7fc;
+    --card: #ffffff;
+
+    --border: #e2e8f0;
+
+    --shadow:
+        0 18px 45px rgba(43, 61, 105, 0.10);
+
+    --shadow-small:
+        0 7px 18px rgba(43, 61, 105, 0.10);
+
+    --radius-large: 26px;
+    --radius-medium: 16px;
+    --radius-small: 11px;
+}
+
+
+/* ==================================================
+   RESET
+================================================== */
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:
-        linear-gradient(135deg, #eef7ff 0%, #f5f0ff 50%, #effcf8 100%);
-    color: #1f2937;
     min-height: 100vh;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #e9f4ff 0,
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #f0ebff 0,
+            transparent 40%
+        ),
+        var(--background);
+
+    padding: 34px 18px;
 }
 
 
-/* =========================
-   CONTAINER
-========================= */
+/* ==================================================
+   HOVEDCONTAINER
+================================================== */
 
 .container {
-    width: 90%;
-    max-width: 950px;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 24px;
-    padding: 40px;
-    box-shadow:
-        0 20px 50px rgba(48, 75, 120, 0.15);
+    width: min(100%, 1000px);
+
+    margin: 0 auto;
+
+    background: var(--card);
+
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: var(--radius-large);
+
+    box-shadow: var(--shadow);
+
+    padding: 48px;
 }
 
 
-/* =========================
-   OVERSKRIFTER
-========================= */
+/* ==================================================
+   TYPOGRAFI
+================================================== */
 
 h1 {
-    color: #243b6b;
-    font-size: 2.2rem;
-    margin-top: 0;
-    margin-bottom: 25px;
+    margin: 0 0 18px;
+
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.1;
+
+    color: #233f78;
+
+    letter-spacing: -0.03em;
 }
 
 h2 {
-    color: #334e7d;
-    margin-top: 35px;
-    margin-bottom: 18px;
+    margin: 38px 0 18px;
+
+    font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+
+    color: #2f4f83;
 }
 
 h3 {
-    color: #475569;
+    margin: 0 0 8px;
+
+    font-size: 1.15rem;
+
+    color: var(--text);
 }
 
 p {
     line-height: 1.6;
 }
 
-
-/* =========================
-   SKJULTE SIDER
-========================= */
-
 .skjult {
-    display: none;
+    display: none !important;
 }
 
 
-/* =========================
+/* ==================================================
    FORMULARER
-========================= */
+================================================== */
 
 label {
     display: block;
-    font-weight: 700;
+
     margin-bottom: 8px;
-    color: #334155;
+
+    font-weight: 700;
+
+    color: var(--text);
 }
 
 input,
 select {
     width: 100%;
+
     padding: 14px 16px;
-    border: 2px solid #d9e2f2;
-    border-radius: 12px;
-    font-size: 1rem;
-    background-color: white;
-    color: #1f2937;
-    margin-bottom: 20px;
-    transition: 0.2s;
+
+    font: inherit;
+
+    color: var(--text);
+
+    background: white;
+
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-small);
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
 input:focus,
 select:focus {
     outline: none;
-    border-color: #536dfe;
-    box-shadow: 0 0 0 4px rgba(83, 109, 254, 0.12);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(79, 93, 245, 0.12);
 }
 
 
-/* =========================
-   PRIMÆRE KNAPPER
-========================= */
+/* ==================================================
+   ALLE KNAPPER
+================================================== */
 
 button {
+    min-height: 48px;
+
+    padding: 12px 22px;
+
+    font: inherit;
+    font-weight: 700;
+
     border: none;
     border-radius: 12px;
-    padding: 13px 22px;
-    font-size: 1rem;
-    font-weight: 700;
+
     cursor: pointer;
 
-    background: linear-gradient(
-        135deg,
-        #536dfe,
-        #6c63ff
-    );
-
-    color: white;
-
-    box-shadow:
-        0 8px 18px rgba(83, 109, 254, 0.25);
-
     transition:
-        transform 0.2s,
-        box-shadow 0.2s,
-        opacity 0.2s;
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        background 0.16s ease,
+        border-color 0.16s ease;
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow:
-        0 12px 25px rgba(83, 109, 254, 0.3);
 }
 
 button:active {
     transform: translateY(0);
 }
 
-
-/* Brug denne klasse på primære knapper hvis I vil */
-.primaer-knap {
-    background: linear-gradient(
-        135deg,
-        #536dfe,
-        #6c63ff
-    );
-    color: white;
+button:focus-visible {
+    outline: 3px solid rgba(79, 93, 245, 0.25);
+    outline-offset: 3px;
 }
 
 
-/* =========================
-   SEKUNDÆRE KNAPPER
-========================= */
+/* ==================================================
+   PRIMÆR KNAP
+   CENTRAL USER ACTION
+================================================== */
+
+.primaer-knap,
+.gem-knap {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f5df5,
+            #635bff
+        );
+
+    box-shadow:
+        0 10px 22px rgba(79, 93, 245, 0.28);
+}
+
+.primaer-knap:hover,
+.gem-knap:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #4350e8,
+            #554be9
+        );
+
+    box-shadow:
+        0 14px 28px rgba(79, 93, 245, 0.32);
+}
+
+
+/* ==================================================
+   SEKUNDÆR KNAP
+================================================== */
 
 .sekundaer-knap {
+    color: var(--primary-dark);
+
     background: white;
-    color: #536dfe;
-    border: 2px solid #536dfe;
+
+    border: 2px solid var(--secondary-border);
+
     box-shadow: none;
 }
 
 .sekundaer-knap:hover {
-    background: #eef1ff;
-    box-shadow: none;
+    color: var(--primary);
+
+    background: var(--primary-light);
+
+    border-color: #aeb8ff;
 }
 
 
-/* =========================
-   SYMPTOM-KNAPPER
-========================= */
+/* ==================================================
+   FORSIDE
+================================================== */
 
-.symptom-grid {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-bottom: 30px;
+#forside {
+    max-width: 760px;
 }
 
-.symptom-knap {
-    background: white;
-    color: #334155;
-    border: 2px solid #dce4f4;
-    box-shadow: none;
-    padding: 18px;
+#forside > p {
+    margin-bottom: 26px;
+
+    font-size: 1.05rem;
+
+    color: var(--text-soft);
 }
 
-.symptom-knap:hover {
-    background: #f0f4ff;
-    border-color: #536dfe;
-    color: #4054d6;
-}
-
-.symptom-knap.valgt {
-    background: linear-gradient(
-        135deg,
-        #536dfe,
-        #6c63ff
-    );
-
-    border-color: transparent;
-    color: white;
-
-    box-shadow:
-        0 8px 20px rgba(83, 109, 254, 0.3);
-}
-
-
-/* =========================
-   SVÆRHEDSGRAD 1–5
-========================= */
-
-.rating-knapper {
+.forside-knapper {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 14px;
+
     flex-wrap: wrap;
-    margin: 20px 0;
+
+    margin-top: 28px;
 }
 
-.rating-knap {
-    width: 52px;
-    height: 52px;
-    padding: 0;
-    border-radius: 50%;
+
+/* Central user action på forsiden:
+   Registrer symptom = første knap */
+.forside-knapper button:first-child {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f5df5,
+            #635bff
+        );
+
+    box-shadow:
+        0 10px 22px rgba(79, 93, 245, 0.28);
+}
+
+
+/* Se historik = sekundær handling */
+.forside-knapper button:nth-child(2) {
+    color: var(--primary-dark);
 
     background: white;
-    color: #334155;
 
-    border: 2px solid #dce4f4;
+    border: 2px solid var(--secondary-border);
+
     box-shadow: none;
 }
 
-.rating-knap:hover {
-    border-color: #536dfe;
-    background: #f0f4ff;
-}
-
-.rating-knap.valgt {
-    background: linear-gradient(
-        135deg,
-        #27b39a,
-        #32c5a7
-    );
-
-    color: white;
-    border-color: transparent;
-
-    box-shadow:
-        0 7px 16px rgba(39, 179, 154, 0.28);
+.forside-knapper button:nth-child(2):hover {
+    background: var(--primary-light);
+    border-color: #aeb8ff;
 }
 
 
-/* =========================
-   VALGT SYMPTOM TEKST
-========================= */
-
-#valg-tekst {
-    background: #f2f7ff;
-    border-left: 5px solid #536dfe;
-    padding: 15px 18px;
-    border-radius: 10px;
-    margin: 25px 0;
-    font-weight: 600;
-}
-
-
-/* =========================
-   KNAPPER VED SIDEN AF HINANDEN
-========================= */
-
-.forside-knapper,
-.knap-container {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 25px;
-}
-
-
-/* =========================
-   SENESTE REGISTRERINGER
-========================= */
-
-.registrering {
-    background: white;
-    border: 1px solid #e3e9f3;
-    border-left: 5px solid #32b89d;
-    border-radius: 14px;
-
-    padding: 18px;
-    margin-bottom: 14px;
-
-    box-shadow:
-        0 5px 15px rgba(60, 80, 120, 0.07);
-}
-
-
-/* =========================
-   HISTORIK
-========================= */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
-    border-radius: 14px;
-    overflow: hidden;
-}
-
-th {
-    background: #536dfe;
-    color: white;
-    text-align: left;
-    padding: 15px;
-}
-
-td {
-    padding: 15px;
-    border-bottom: 1px solid #edf0f5;
-}
-
-tr:hover td {
-    background: #f8f9ff;
-}
-
-
-/* =========================
+/* ==================================================
    LOGIN
-========================= */
+================================================== */
 
 #login {
-    max-width: 500px;
-    margin: auto;
+    max-width: 560px;
+
+    margin: 0 auto;
 }
 
 #login-form {
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
+    display: grid;
+
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+#login-form button {
+    margin-top: 6px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f5df5,
+            #635bff
+        );
 
     box-shadow:
-        0 12px 30px rgba(54, 72, 110, 0.1);
+        0 10px 22px rgba(79, 93, 245, 0.24);
 }
 
 
-/* =========================
-   MOBIL
-========================= */
+/* ==================================================
+   SYMPTOMVALG
+================================================== */
 
-@media (max-width: 650px) {
+.symptom-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-top: 18px;
+}
+
+.symptom-knap {
+    min-height: 62px;
+
+    padding: 16px;
+
+    color: #34415c;
+
+    background: #ffffff;
+
+    border: 2px solid #dbe3f1;
+
+    box-shadow: none;
+}
+
+.symptom-knap:hover {
+    color: var(--primary-dark);
+
+    background: #f7f8ff;
+
+    border-color: #aeb8ff;
+}
+
+.symptom-knap.valgt {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f5df5,
+            #635bff
+        );
+
+    border-color: transparent;
+
+    box-shadow:
+        0 9px 22px rgba(79, 93, 245, 0.26);
+}
+
+
+/* ==================================================
+   SVÆRHEDSGRAD 1–5
+================================================== */
+
+.rating,
+.rating-knapper {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin: 18px 0;
+}
+
+.rating button,
+.rating-knap {
+    width: 54px;
+    height: 54px;
+
+    padding: 0;
+
+    color: #38445d;
+
+    background: #f8fafc;
+
+    border: 2px solid #dbe3f1;
+
+    box-shadow: none;
+}
+
+.rating button:hover,
+.rating-knap:hover {
+    color: var(--primary-dark);
+
+    background: var(--primary-light);
+
+    border-color: #9da8ff;
+}
+
+.rating button.valgt,
+.rating-knap.valgt {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f5df5,
+            #635bff
+        );
+
+    border-color: transparent;
+
+    box-shadow:
+        0 8px 17px rgba(79, 93, 245, 0.25);
+}
+
+
+/* ==================================================
+   VALGT SYMPTOM
+================================================== */
+
+#valg-tekst {
+    margin: 26px 0;
+
+    padding: 17px 20px;
+
+    font-weight: 700;
+
+    color: #30405e;
+
+    background: #f0f5ff;
+
+    border-left: 5px solid var(--primary);
+
+    border-radius: 0 12px 12px 0;
+}
+
+
+/* ==================================================
+   KNAPPER PÅ REGISTRERINGSSIDEN
+================================================== */
+
+.registreringspanel > button,
+.to-kolonner button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+
+/* Gem er klart primær */
+.gem-knap {
+    min-width: 150px;
+}
+
+
+/* Almindelige knapper efter Gem
+   får mere sekundært udtryk */
+.gem-knap ~ button {
+    color: #42506b;
+
+    background: white;
+
+    border: 2px solid var(--secondary-border);
+
+    box-shadow: none;
+}
+
+.gem-knap ~ button:hover {
+    color: var(--primary-dark);
+
+    background: var(--primary-light);
+
+    border-color: #aeb8ff;
+}
+
+
+/* ==================================================
+   SENESTE REGISTRERINGER / HISTORIK
+================================================== */
+
+#historik-liste,
+#kort-historik {
+    display: grid;
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+.registrering {
+    position: relative;
+
+    padding: 20px 22px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-medium);
+
+    box-shadow: var(--shadow-small);
+
+    transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease;
+}
+
+.registrering::before {
+    content: "";
+
+    position: absolute;
+
+    top: 18px;
+    bottom: 18px;
+    left: 0;
+
+    width: 4px;
+
+    background: var(--primary);
+
+    border-radius: 0 6px 6px 0;
+}
+
+.registrering:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(43, 61, 105, 0.12);
+}
+
+.registrering h3 {
+    color: #2f4f83;
+}
+
+.registrering p {
+    margin: 5px 0;
+
+    color: var(--text-soft);
+}
+
+
+/* ==================================================
+   HISTORIK-SIDE
+================================================== */
+
+#historik-side {
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+#historik-side > button {
+    margin-top: 25px;
+
+    color: var(--primary-dark);
+
+    background: white;
+
+    border: 2px solid var(--secondary-border);
+
+    box-shadow: none;
+}
+
+
+/* ==================================================
+   TABEL
+================================================== */
+
+table {
+    width: 100%;
+
+    margin-top: 22px;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+th,
+td {
+    padding: 15px;
+
+    text-align: left;
+}
+
+th {
+    color: #30436c;
+
+    background: #eef3ff;
+
+    font-size: 0.9rem;
+}
+
+td {
+    border-top: 1px solid var(--border);
+}
+
+tr:hover td {
+    background: #fafbff;
+}
+
+
+/* ==================================================
+   SUCCES / STATUS
+================================================== */
+
+.success-besked {
+    margin-top: 18px;
+
+    padding: 14px 17px;
+
+    color: #176b53;
+
+    font-weight: 700;
+
+    background: var(--success-light);
+
+    border: 1px solid #bde8da;
+    border-radius: 12px;
+}
+
+
+/* ==================================================
+   MOBIL
+================================================== */
+
+@media (max-width: 760px) {
+
+    body {
+        padding: 16px 12px;
+    }
 
     .container {
-        width: 94%;
-        margin: 20px auto;
-        padding: 25px 18px;
-        border-radius: 18px;
-    }
+        padding: 28px 20px;
 
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.25rem;
+        border-radius: 20px;
     }
 
     .symptom-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
-    .forside-knapper,
-    .knap-container {
+    .forside-knapper {
+        align-items: stretch;
         flex-direction: column;
     }
 
-    .forside-knapper button,
-    .knap-container button {
+    .forside-knapper button {
         width: 100%;
+    }
+
+    .gem-knap {
+        width: 100%;
+
+        margin-bottom: 8px;
+    }
+
+    .gem-knap ~ button {
+        width: 100%;
+    }
+}
+
+
+/* ==================================================
+   MEGET SMÅ SKÆRME
+================================================== */
+
+@media (max-width: 420px) {
+
+    .container {
+        padding: 24px 16px;
+    }
+
+    .symptom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rating,
+    .rating-knapper {
+        justify-content: space-between;
+
+        gap: 6px;
+    }
+
+    .rating button,
+    .rating-knap {
+        width: 46px;
+        height: 46px;
     }
 }
