@@ -23,6 +23,7 @@ async function hentHistorik() {
 
         kort.innerHTML = `
             <h3>${registrering.symptom}</h3>
+            <p>Patient-ID: ${registrering.patient_id}</p>
             <p>Sværhedsgrad: ${registrering.severity}/5</p>
             <p>Dato: ${dato}</p>
         `;
