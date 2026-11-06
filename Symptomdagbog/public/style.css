@@ -1,0 +1,383 @@
+/* =========================
+   GRUNDSTIL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        linear-gradient(135deg, #eef7ff 0%, #f5f0ff 50%, #effcf8 100%);
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 950px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow:
+        0 20px 50px rgba(48, 75, 120, 0.15);
+}
+
+
+/* =========================
+   OVERSKRIFTER
+========================= */
+
+h1 {
+    color: #243b6b;
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #334e7d;
+    margin-top: 35px;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #475569;
+}
+
+p {
+    line-height: 1.6;
+}
+
+
+/* =========================
+   SKJULTE SIDER
+========================= */
+
+.skjult {
+    display: none;
+}
+
+
+/* =========================
+   FORMULARER
+========================= */
+
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #334155;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #d9e2f2;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: white;
+    color: #1f2937;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #536dfe;
+    box-shadow: 0 0 0 4px rgba(83, 109, 254, 0.12);
+}
+
+
+/* =========================
+   PRIMÆRE KNAPPER
+========================= */
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 22px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #536dfe,
+        #6c63ff
+    );
+
+    color: white;
+
+    box-shadow:
+        0 8px 18px rgba(83, 109, 254, 0.25);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        opacity 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 25px rgba(83, 109, 254, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* Brug denne klasse på primære knapper hvis I vil */
+.primaer-knap {
+    background: linear-gradient(
+        135deg,
+        #536dfe,
+        #6c63ff
+    );
+    color: white;
+}
+
+
+/* =========================
+   SEKUNDÆRE KNAPPER
+========================= */
+
+.sekundaer-knap {
+    background: white;
+    color: #536dfe;
+    border: 2px solid #536dfe;
+    box-shadow: none;
+}
+
+.sekundaer-knap:hover {
+    background: #eef1ff;
+    box-shadow: none;
+}
+
+
+/* =========================
+   SYMPTOM-KNAPPER
+========================= */
+
+.symptom-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.symptom-knap {
+    background: white;
+    color: #334155;
+    border: 2px solid #dce4f4;
+    box-shadow: none;
+    padding: 18px;
+}
+
+.symptom-knap:hover {
+    background: #f0f4ff;
+    border-color: #536dfe;
+    color: #4054d6;
+}
+
+.symptom-knap.valgt {
+    background: linear-gradient(
+        135deg,
+        #536dfe,
+        #6c63ff
+    );
+
+    border-color: transparent;
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(83, 109, 254, 0.3);
+}
+
+
+/* =========================
+   SVÆRHEDSGRAD 1–5
+========================= */
+
+.rating-knapper {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.rating-knap {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border-radius: 50%;
+
+    background: white;
+    color: #334155;
+
+    border: 2px solid #dce4f4;
+    box-shadow: none;
+}
+
+.rating-knap:hover {
+    border-color: #536dfe;
+    background: #f0f4ff;
+}
+
+.rating-knap.valgt {
+    background: linear-gradient(
+        135deg,
+        #27b39a,
+        #32c5a7
+    );
+
+    color: white;
+    border-color: transparent;
+
+    box-shadow:
+        0 7px 16px rgba(39, 179, 154, 0.28);
+}
+
+
+/* =========================
+   VALGT SYMPTOM TEKST
+========================= */
+
+#valg-tekst {
+    background: #f2f7ff;
+    border-left: 5px solid #536dfe;
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin: 25px 0;
+    font-weight: 600;
+}
+
+
+/* =========================
+   KNAPPER VED SIDEN AF HINANDEN
+========================= */
+
+.forside-knapper,
+.knap-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+
+/* =========================
+   SENESTE REGISTRERINGER
+========================= */
+
+.registrering {
+    background: white;
+    border: 1px solid #e3e9f3;
+    border-left: 5px solid #32b89d;
+    border-radius: 14px;
+
+    padding: 18px;
+    margin-bottom: 14px;
+
+    box-shadow:
+        0 5px 15px rgba(60, 80, 120, 0.07);
+}
+
+
+/* =========================
+   HISTORIK
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+th {
+    background: #536dfe;
+    color: white;
+    text-align: left;
+    padding: 15px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+tr:hover td {
+    background: #f8f9ff;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+#login {
+    max-width: 500px;
+    margin: auto;
+}
+
+#login-form {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 30px rgba(54, 72, 110, 0.1);
+}
+
+
+/* =========================
+   MOBIL
+========================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 94%;
+        margin: 20px auto;
+        padding: 25px 18px;
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .symptom-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .forside-knapper,
+    .knap-container {
+        flex-direction: column;
+    }
+
+    .forside-knapper button,
+    .knap-container button {
+        width: 100%;
+    }
+}

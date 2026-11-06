@@ -8,12 +8,10 @@ let state = {
 
     valgtRating: 0,
 
-    registreringer:
-        JSON.parse(
-            localStorage.getItem("registreringer")
-        ) || []
+    registreringer: []
 
 };
+
 // -----------------------
 // VÆLG SYMPTOM
 // -----------------------
@@ -102,7 +100,7 @@ function opdaterValgTekst() {
 // GEM REGISTRERING
 // -----------------------
 
-function gemRegistrering() {
+async function gemRegistrering() {
 
     if (
         !state.valgtSymptom ||
@@ -133,23 +131,26 @@ function gemRegistrering() {
     };
 
 
-    // Tilføj til state
+  
 
-    state.registreringer.push(
-        registrering
-    );
+const response = await fetch("/api/registreringer", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        patient_id: 1,
+        symptom: state.valgtSymptom,
+        severity: state.valgtRating
+    })
+});
 
+if (!response.ok) {
+    alert("Registreringen kunne ikke gemmes.");
+    return;
+}
 
-    // Gem state-data i browseren
-    localStorage.setItem(
-
-        "registreringer",
-
-        JSON.stringify(
-            state.registreringer
-        )
-
-    );
+alert("Registreringen er gemt.");
 
 
     // Nulstil valg
@@ -196,3 +197,5 @@ function nulstilKnapper() {
         "Vælg et symptom og en sværhedsgrad.";
 
 } 
+
+

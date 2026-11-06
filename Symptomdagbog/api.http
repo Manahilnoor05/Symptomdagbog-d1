@@ -1,3 +1,24 @@
 ### Hent alle patienter
 
 GET http://localhost:3000/api/patients
+
+### Opret symptomregistrering
+
+POST http://localhost:3000/api/registreringer
+Content-Type: application/json
+
+{
+  "patient_id": 1,
+  "symptom": "Migræne",
+  "severity": 4
+}
+
+### Mangler symptom
+
+POST http://localhost:3000/api/registreringer
+Content-Type: application/json
+
+{
+  "patient_id": 1,
+  "severity": 4
+}
