@@ -195,4 +195,4 @@ function nulstilKnapper() {
         .textContent =
         "Vælg et symptom og en sværhedsgrad.";
 
-}
+} 
