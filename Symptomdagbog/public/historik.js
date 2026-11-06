@@ -1,130 +1,34 @@
-function tegnHistorik() {
+async function hentHistorik() {
+    const response = await fetch("/api/registreringer");
 
-    const historik =
-        document.getElementById(
-            "historik-liste"
-        );
-
-
-    const kortHistorik =
-        document.getElementById(
-            "kort-historik"
-        );
-
-
-    historik.innerHTML = "";
-
-    kortHistorik.innerHTML = "";
-
-
-    if (
-        state.registreringer.length === 0
-    ) {
-
-        historik.innerHTML =
-            "<p>Du har endnu ingen registreringer.</p>";
-
-
-        kortHistorik.innerHTML =
-            "<p>Ingen registreringer endnu.</p>";
-
-
+    if (!response.ok) {
+        alert("Historikken kunne ikke hentes.");
         return;
-
     }
 
+    const registreringer = await response.json();
 
-    state.registreringer
-        .forEach(function(registrering) {
+    const liste = document.getElementById("historik-liste");
 
+    liste.innerHTML = "";
 
-            const element =
-                document.createElement(
-                    "div"
-                );
+    registreringer.forEach(function(registrering) {
+        const kort = document.createElement("div");
 
+        kort.classList.add("registrering");
 
-            element.classList.add(
-                "registrering"
-            );
+        const dato = new Date(
+            registrering.dato
+        ).toLocaleDateString("da-DK");
 
+        kort.innerHTML = `
+            <h3>${registrering.symptom}</h3>
+            <p>Sværhedsgrad: ${registrering.severity}/5</p>
+            <p>Dato: ${dato}</p>
+        `;
 
-            element.innerHTML =
-
-                "<strong>" +
-                registrering.symptom +
-                "</strong>" +
-
-                "<br>" +
-
-                "Sværhedsgrad: " +
-                registrering.rating +
-                "/5" +
-
-                "<br>" +
-
-                "Dato: " +
-                registrering.dato;
-
-
-            historik.appendChild(
-                element
-            );
-
-        });
-
-
-    // Vis kun de tre seneste
-    // i sidepanelet
-
-    const seneste =
-        state.registreringer.slice(-3);
-
-
-    seneste.forEach(
-        function(registrering) {
-
-
-            const element =
-                document.createElement(
-                    "div"
-                );
-
-
-            element.classList.add(
-                "registrering"
-            );
-
-
-            element.innerHTML =
-
-                "<strong>" +
-                registrering.symptom +
-                "</strong>" +
-
-                "<br>" +
-
-                registrering.rating +
-                "/5" +
-
-                "<br>" +
-
-                registrering.dato;
-
-
-            kortHistorik.appendChild(
-                element
-            );
-
-        }
-    );
-
+        liste.appendChild(kort);
+    });
 }
 
-
-// -----------------------
-// TEGN DATA VED START
-// -----------------------
-
-tegnHistorik();
-
+hentHistorik();

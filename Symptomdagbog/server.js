@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
-import { opretRegistrering } from "./symptomregistreringer.js";
+import {
+    opretRegistrering,
+    hentRegistreringer
+} from "./symptomregistreringer.js";
 import { hentPatienter } from "./patients.js";
 
 const app = express();
@@ -36,6 +39,22 @@ app.post("/api/registreringer", async (req, res) => {
         );
 
         res.status(201).json(registrering);
+
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            error: "serverfejl"
+        });
+    }
+});
+
+
+app.get("/api/registreringer", async (req, res) => {
+    try {
+        const registreringer = await hentRegistreringer();
+
+        res.status(200).json(registreringer);
 
     } catch (err) {
         console.error(err);

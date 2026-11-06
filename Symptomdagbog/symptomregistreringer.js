@@ -15,3 +15,13 @@ export async function opretRegistrering(patientId, symptom, severity) {
 
     return result.rows[0];
 }
+
+export async function hentRegistreringer() {
+    const result = await pool.query(
+        `SELECT id, patient_id, symptom, severity, dato
+         FROM symptomregistreringer
+         ORDER BY dato DESC`
+    );
+
+    return result.rows;
+}
